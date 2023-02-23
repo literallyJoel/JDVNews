@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,600&display=swap');
+
+#navibar{
+  background-color: #A50010;
+  font-family: 'Montserrat', sans-serif;
+}
+
+#settingsButton{
+  background-color: transparent;
+  border: none;
+  font-size: 1.4rem;
+}
+
+#settingsButton:hover{
+  color: lightgrey;
+}
