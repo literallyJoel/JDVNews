@@ -1,0 +1,32 @@
+#Form{
+    width: 60%;
+    height: 35%;
+    border-color: #A50010 !important;
+    border-width:   0.2rem !important;
+    border-radius: 15px !important;
+}
+
+
+#headerText{
+    text-align: center;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    font-weight: bolder;
+    color: #A50010;
+    font-size: 1.2rem;
+
+    display: flex;  
+    align-items: center;
+    flex-direction: column;
+}
+
+#formButton{
+    background-color: #A50010;
+    border-color: #A50010;
+    font-weight: bold;
+}
+
+#formButton:hover{
+    background-color: white;
+    color: #A50010
+}
