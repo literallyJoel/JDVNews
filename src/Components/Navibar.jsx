@@ -1,25 +1,57 @@
-import { Button, Navbar, Nav, Container } from "react-bootstrap";
-import logoLight from "../assets/img/jdvLogo/logoLight.png";
+import { Button, DropdownButton, Navbar , Dropdown} from "react-bootstrap";
+import logoLight from "../assets/img/jdvlogo/logoLight.png";
 import { MdOutlineSettings } from "react-icons/md"
-export const Navibar = () => {
+import decode from "jwt-decode";
+
+export const Navibar = (props) => {
+
+    function Logout(){
+        localStorage.removeItem("token");
+        props.setToken(undefined);
+    }
+    function LoginButton() {
+    
+
+        if(props.token){
+         
+            return(
+                <DropdownButton id="loginButton" title={decode(props.token).userName}>
+                    <Dropdown.Item>My Profile</Dropdown.Item>
+                    <Dropdown.Item onClick={() => Logout()}>Logout</Dropdown.Item>
+                </DropdownButton>
+            )
+        }else{
+          
+            return(
+                <Button id="loginButton">Login</Button>
+            )
+        }
+
+    }
     return (
-        <Navbar id="navibar" fixed="top" variant="dark">
-            <Container>
-                <Navbar.Brand href="#home">
+        <Navbar id="navibar" variant="dark" className="justify-content-between">
+
+            <div className="d-flex">
+                <Navbar.Brand href="#home" style={{ marginLeft: "10vw" }}>
                     <img
                         alt=""
                         src={logoLight}
-                        width="35"
+                        width="30"
+                        height="30"
                         className="d-inline-block align-top"
-                    />{" "}
-                    <b>JDV News</b>
+                    />{' '}
+                    JDVNews
                 </Navbar.Brand>
-                <Nav className="ml-auto">
-                    <Button id="settingsButton"className="mr-2">
-                        <MdOutlineSettings/>
-                    </Button>
-                </Nav>
-            </Container>
+            </div>
+
+            <div className="d-flex justify-content-end" style={{ marginRight: "10vw" }}>
+                <LoginButton/>
+                <Button id="settingsButton" style={{ marginLeft: "5vw" }}>
+                    <MdOutlineSettings />
+                </Button>
+            </div>
+
         </Navbar>
+
     );
 };
