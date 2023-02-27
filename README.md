@@ -5,7 +5,7 @@ Mobile-Friendly News Aggregator build with React.
 WIP 
 
 
-# Acknowledgments
+# Acknowledgements
 The following libraries are in use in this project
 ```
 React
