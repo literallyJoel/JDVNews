@@ -7,7 +7,12 @@ WIP
 
 ```
 React
-Vite
 React Bootstrap
 React Icons
+
+Express
+BCrypt
+JSONWebToken
+express-validator
+MySQL2
 ```
