@@ -1,6 +1,6 @@
 import { Button, DropdownButton, Navbar , Dropdown} from "react-bootstrap";
-import logoLight from "../assets/img/jdvlogo/logoLight.png";
-import { MdOutlineSettings } from "react-icons/md"
+import logoLight from "../../assets/img/jdvlogo/logoLight.png";
+import "./navibar.css";
 import decode from "jwt-decode";
 
 export const Navibar = (props) => {
@@ -8,6 +8,7 @@ export const Navibar = (props) => {
     function Logout(){
         localStorage.removeItem("token");
         props.setToken(undefined);
+        window.location.replace("/login");
     }
     function LoginButton() {
     
@@ -15,8 +16,8 @@ export const Navibar = (props) => {
         if(props.token){
          
             return(
-                <DropdownButton id="loginButton" title={decode(props.token).userName}>
-                    <Dropdown.Item>My Profile</Dropdown.Item>
+                <DropdownButton id="profileButton" title={decode(props.token).userName}>
+                    <Dropdown.Item href="/profile">My Profile</Dropdown.Item>
                     <Dropdown.Item onClick={() => Logout()}>Logout</Dropdown.Item>
                 </DropdownButton>
             )
@@ -46,9 +47,6 @@ export const Navibar = (props) => {
 
             <div className="d-flex justify-content-end" style={{ marginRight: "10vw" }}>
                 <LoginButton/>
-                <Button id="settingsButton" style={{ marginLeft: "5vw" }}>
-                    <MdOutlineSettings />
-                </Button>
             </div>
 
         </Navbar>
